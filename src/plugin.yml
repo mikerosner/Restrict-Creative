@@ -1,0 +1,9 @@
+name: RestrictCreative
+version: 5.1 VERSION
+api-version: 1.13
+softdepend: [WorldEdit,WorldGuard]
+main: ro.deiutzblaxo.RestrictCreative.Main
+commands:
+  import:
+  restrictcreative:
+  bulk:
