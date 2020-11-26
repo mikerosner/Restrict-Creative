@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,10 +64,7 @@ public class MySQLGetSet {
 				}
 			}
 		} catch (SQLException e) {
-			Bukkit.broadcastMessage(LocalDate.now().toString()
-					+ "PLEASE CALL THE DEV IF YOU SEE THIS . Discord : Deiutz#1349" + ".... " + e.getSQLState());
-			Bukkit.broadcastMessage(e.getSQLState());
-			Bukkit.broadcastMessage(e.getStackTrace().toString());
+			e.printStackTrace();
 		}
 
 	}
