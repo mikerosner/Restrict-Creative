@@ -71,6 +71,9 @@ public class ConfigManager {
 		itemsDisabledDefault.add("lava_bucket");
 		itemsDisabledDefault.add("bedrock");
 		config.addDefault("Disabled-Items", itemsDisabledDefault);
+		ArrayList<String> creativeLimitedItems = new ArrayList<String>();
+		creativeLimitedItems.add("DIAMOND_CHESTPLATE");
+		config.addDefault("Limited-Items", creativeLimitedItems);
 		config.addDefault("username", "root");
 		config.addDefault("host", "localhost");
 		config.addDefault("port", 3306);
@@ -104,6 +107,15 @@ public class ConfigManager {
 	}
 	public ArrayList<Material> getBannedItems(){
 		ArrayList<String> rawMaterial = new ArrayList<String>(this.getConfig().getStringList("Disabled-Items"));
+		ArrayList<Material> Materials = new ArrayList<Material>();
+		for(String str: rawMaterial) {
+			Materials.add(Material.getMaterial(str.toUpperCase()));
+		}
+		return Materials;
+	}
+
+	public ArrayList<Material> getLimitedItems(){
+		ArrayList<String> rawMaterial = new ArrayList<String>(this.getConfig().getStringList("Limited-Items"));
 		ArrayList<Material> Materials = new ArrayList<Material>();
 		for(String str: rawMaterial) {
 			Materials.add(Material.getMaterial(str.toUpperCase()));

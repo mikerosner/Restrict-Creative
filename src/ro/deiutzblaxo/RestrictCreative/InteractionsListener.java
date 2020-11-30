@@ -72,12 +72,25 @@ public class InteractionsListener implements Listener {
 	@EventHandler
 	public void onInventoryClickEvent(InventoryClickEvent event) {
 		if (!plugin.getConfigManager().getConfig().getString("Disabled-Items").isEmpty()) {
-			if(!event.getWhoClicked().hasPermission(BypassDisabledItemsPermission)){
+			if (!event.getWhoClicked().hasPermission(BypassDisabledItemsPermission)) {
 				if (plugin.getConfigManager().getBannedItems().contains(event.getCursor().getType())) {
 
 					event.getCursor().setType(Material.AIR);
 					event.setCancelled(true);
 					return;
+				}
+
+			}
+		}
+
+		if (!plugin.getConfigManager().getConfig().getString("Limited-Items").isEmpty()) {
+			if (!event.getWhoClicked().hasPermission(BypassDisabledItemsPermission)) {
+				if (plugin.getConfigManager().getLimitedItems().contains(event.getCursor().getType())) {
+					if (event.getInventory().getType().getDefaultTitle().equals("Creative")) {
+						event.getCursor().setType(Material.DIRT);
+						event.setCancelled(true);
+						return;
+					}
 				}
 
 			}
