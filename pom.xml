@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>temp</groupId>
+    <artifactId>limit-creative</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}-${project.version}</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- Start Sonar -->
+        <java.version>1.8</java.version>
+        <!-- End Versions -->
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>spigot</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.16.2</version>
+        </dependency>
+        <dependency>
+            <groupId>bukkit</groupId>
+            <artifactId>worldedit-bukkit</artifactId>
+            <version>7.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>bukkit</groupId>
+            <artifactId>worldguard-bukkit</artifactId>
+            <version>7.0.3</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${artifactId}</finalName>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-jar-plugin</artifactId>-->
+<!--                <version>3.2.0</version>-->
+<!--                <configuration>-->
+<!--                    <archive>-->
+<!--                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>-->
+<!--                    </archive>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+</project>
